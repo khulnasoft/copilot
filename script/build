@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+rm -rf dist
+mkdir dist
+tar -czf dist/copilot.tar.gz -C copilot.vim/dist .
