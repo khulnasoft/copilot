@@ -1,0 +1,27 @@
+#!/bin/bash
+set -e # Exit on error
+
+# Print commands before executing them
+set -x 
+
+echo "Running tests..."
+
+# Add test commands here based on your project type
+# For example:
+
+# For Python projects
+if [ -f "pytest.ini" ] || [ -d "tests" ]; then
+    python -m pytest
+fi
+
+# For JavaScript/Node.js projects
+if [ -f "package.json" ]; then
+    npm test
+fi
+
+# For Ruby projects
+if [ -f "Gemfile" ]; then
+    bundle exec rspec
+fi
+
+echo "All tests completed successfully!" 

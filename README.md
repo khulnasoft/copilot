@@ -1,3 +1,19 @@
+# Project Name
+
+Brief description of your project.
+
+## Getting Started
+Instructions for setting up and running the project.
+
+## Development
+How to set up the development environment.
+
+## Contributing
+Guidelines for contributing to the project.
+
+## License
+Specify your project's license.
+
 # copilot
 
 This repository extracts the Copilot language server from [copilot.vim](https://github.com/github/copilot.vim) and packages it into a tarball.

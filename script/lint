@@ -1,0 +1,59 @@
+#!/bin/bash
+set -euo pipefail
+
+# Print usage
+usage() {
+    echo "Usage: $0 [-h] [-f]"
+    echo "Run linters on the codebase"
+    echo ""
+    echo "Options:"
+    echo "  -h    Show this help message"
+    echo "  -f    Fix linting issues where possible"
+    exit 1
+}
+
+# Parse command line arguments
+FIX=false
+while getopts "hf" opt; do
+    case $opt in
+        h)
+            usage
+            ;;
+        f)
+            FIX=true
+            ;;
+        \?)
+            usage
+            ;;
+    esac
+done
+
+echo "Running linters..."
+
+# Add your linting commands here based on your project's needs
+# For example:
+
+# JavaScript/TypeScript linting with ESLint
+if command -v eslint >/dev/null 2>&1; then
+    if [ "$FIX" = true ]; then
+        echo "Running ESLint with auto-fix..."
+        eslint --fix .
+    else
+        echo "Running ESLint..."
+        eslint .
+    fi
+fi
+
+# Python linting with flake8
+if command -v flake8 >/dev/null 2>&1; then
+    echo "Running flake8..."
+    flake8 .
+fi
+
+# Shell script linting with shellcheck
+if command -v shellcheck >/dev/null 2>&1; then
+    echo "Running shellcheck..."
+    shellcheck script/*
+fi
+
+echo "Linting complete!" 
